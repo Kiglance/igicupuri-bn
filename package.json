@@ -18,7 +18,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "schema:gen": "ts-node generate-typings"
+    "schema:gen": "ts-node generate-typings",
+    "seed": "nestjs-command seed:role",
+    "seed:undo": "nestjs-command remove:role",
+    "seed:all": "yarn run seed:undo && yarn run seed"
   },
   "dependencies": {
     "@apollo/server": "^4.7.5",
@@ -42,6 +45,7 @@
     "graphql": "^16.7.1",
     "joi": "^17.9.2",
     "neo4j-driver": "^5.10.0",
+    "nestjs-command": "^3.1.4",
     "nodemailer": "^6.9.3",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
@@ -61,6 +65,7 @@
     "@types/nodemailer": "^6.4.8",
     "@types/passport-jwt": "^3.0.9",
     "@types/supertest": "^2.0.11",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",

@@ -7,7 +7,9 @@ import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { Neo4jModule } from './database/neo4j.module';
 import { AppController } from './app.contoller';
-import { AuthModule } from './modules/auth/auth.module';
+// import { AuthModule } from './modules/auth/auth.module';
+import { UserModule } from './modules/user/user.module';
+import { RoleModule } from './modules/role/role.module';
 
 @Module({
   imports: [
@@ -22,7 +24,9 @@ import { AuthModule } from './modules/auth/auth.module';
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
     Neo4jModule.forRootAsync(),
-    AuthModule,
+    // AuthModule,
+    UserModule,
+    RoleModule,
   ],
   providers: [AppResolver, AppService],
   exports: [AppService],

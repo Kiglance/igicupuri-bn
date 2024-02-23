@@ -1,0 +1,32 @@
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  isVerified: Boolean!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  email: String
+}
+
+type Query {
+  getUser(id: ID!): User!
+  getUsers: [User]!
+}
+
+type Mutation {
+  createUser(userInput: CreateUserInput!): User!
+  updateUser(id: ID!, userInput: UpdateUserInput!): User!
+  deleteUser(id: ID!): Boolean
+}
